@@ -18,13 +18,15 @@ restService.post("/poppy", function(req, res) {
   switch(req.body.result.parameters.echoText.toLowerCase()){
     case "dog":
       speech = 'Doges are funny';
-        break;
-      case "plant":
-        speech ='I like this plant';
-        break;
+      break;
+    case "plant":
+      speech ='I like this plant';
+      break;
     case "poppy":
-        speech = 'I am poppy.';
-        break;
+      speech = 'I am not poppy.';
+      break;
+    default:
+      speech = 'I am poppy.';
   }
   return res.json({
     speech: speech,
