@@ -13,7 +13,7 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/poppy", function(req, res) {
+restService.post("/echo", function(req, res) {
   let speech = '';
   switch(req.body.result.parameters.echoText.toLowerCase()){
     case "dog":
