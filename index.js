@@ -13,9 +13,19 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/echo", function(req, res) {
-  let speech =
-    req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "I don't think I can help you with that yet. Type 'HELP' again for more on how I can help.";
+restService.post("/poppy", function(req, res) {
+  let speech = '';
+  switch(req.body.result.parameters.echoText.toLowerCase()){
+    case "dog":
+      speech = 'Doges are funny';
+        break;
+      case "plant":
+        speech ='I like this plant';
+        break;
+    case "poppy":
+        speech = 'I am poppy.';
+        break;
+  }
   return res.json({
     speech: speech,
     displayText: speech,
