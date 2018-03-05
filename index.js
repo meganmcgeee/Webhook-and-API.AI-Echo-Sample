@@ -14,7 +14,7 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-  var speech = "I don't think I can help you with that yet. Type 'HELP' again for more on how I can help.";
+  var speech = "I am the simplest Dialogflow response.";
   return res.json({
     speech: speech,
     displayText: speech,
