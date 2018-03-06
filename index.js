@@ -14,21 +14,10 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/echo", function(req, res) {
-  var speech = "";
-    switch (req.body.result.parameters.echoTest.toLowerCase()) {
-      case "one":
-        speech =
-          'case 1 text';
-        break;
-      case "two":
-        speech =
-          'case 2 text';
-        break;
-      case "three":
-        speech =
-          'case three text';
-        break;
-    }
+  var speech =
+    req.body.result.parameters.echoText ?
+    req.body.result.parameters.echoText :
+    "Seems like some problem. Speak again.";
   return res.json({
     speech: speech,
     displayText: speech,
